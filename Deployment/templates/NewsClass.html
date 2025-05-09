@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+</head>
+<body>
+
+<div class="header">
+  <h2>News Articles Classification (Real or Fake)</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>What are Fake News:</h2>
+      <p>
+      	In our day to day life we are more influenced with social media platforms. We are using them for personal use and as well as for knowledge gain. But sometimes the knowledge or the information we are getting might not be genuine. It’s because of the fake news or misinformation comes in articles.<img src="{{ url_for('static', filename='images/fakenews.png')}}" alt="FakeNews" width="250" height="250", align="right">
+      </p>
+      <p>
+      	“Fake news” is a term that has come to mean different things to different people. At its core, we are defining “fake news” as those news stories that are false: the story itself is fabricated, with no verifiable facts, sources or quotes.
+      </p>
+      <p>
+      	Sometimes these stories may be propaganda that is intentionally designed to mislead the reader, or may be designed as “clickbait” written for economic incentives (the writer profits on the number of people who click on the story).
+      </p>
+      <h2> Project Details:</h2>
+      <p>
+      	In This project we are going analyze & identify this fake news with the help of Artificial Intelligence Module which is Natural Language Processing. This Module is specialized in handling of the text data from the articles.
+      	The module is developed in Python programming language which is easy to understand & work upon our analysis.
+      </p>
+      <p>
+      	By using this module we will be handling a News dataset, in which we will follow certain text preprocessing/cleaning steps and then we will apply that text to Machine Learning models which is also another module of AI for Predictive analysis, will predict the news either real or fake.	
+      </p>
+      <h2>About The Data:</h2>
+      <p>
+      	The Dataset taken for this analysis was from open resources published and can be found at <a href="https://data-flair.training/blogs/advanced-python-project-detecting-fake-news/">Data Link</a>.
+      </p>
+      <h3>The Dataset is composed of the following attributes:</h3>
+      <table style="width:100%">
+        <tr>
+          <th>Name of the Atrribute</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td>Title of the News</td>
+        </tr>
+        <tr>
+          <td>Text</td>
+          <td>News Article Text</td>
+        </tr>
+        <tr>
+          <td>Label</td>
+          <td>Real or Fake</td>
+        </tr>
+      </table>
+      <p>
+      	Here we are going to clean and process Text column to analyze certain article is real or fake
+      </p>
+    </div>
+  </div>
+
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>Process for Text Pre-Processing</h2>
+      <img src="{{ url_for('static', filename='images/process5.png')}}" style="width:100%"
+      style="height:100%">
+    </div>
+    <div class="card">
+      <div class="login">
+        <h2>Check The Analysis Here:</h2>
+        <h3>Prediction of NewsText Based On Article Text</h3>
+        <h4>Enter Sample News Article:</h4>
+        <form action="{{ url_for('predict')}}"method="post">
+          <textarea rows="12" cols="70" name="newstext"></textarea>
+          <br>
+          <input type="submit" value="Prediction">
+          <br>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>Article Text:</h2>
+          <p>{{Article_Text}}</p>
+        </div>
+      </div>
+      <div class="rightcolumn">
+        <div class="card">
+          <h2>Wordcloud (Imp Words) for the given article:</h2>
+          <img src="{{ url_for('static', filename='images/wc.png')}}" style="width:100%"style="height:100%">
+          <br>
+          <h2>Prediction:</h2>
+          <span class="blinking">{{prediction}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Thank You !</h2>
+</div>
+
+</body>
+</html>
